@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div>
+                <h1>Student Management System</h1>
+                <p>Student Information Dashboard</p>
+            </div>
+
+            <button class="add-btn" onclick="addStudent()">
+                + Add Student
+            </button>
+        </header>
+
+
+        <!-- DASHBOARD CARDS -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">20</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Students</h3>
+                <p id="activeStudents">16</p>
+            </div>
+
+            <div class="card">
+                <h3>Inactive Students</h3>
+                <p id="inactiveStudents">4</p>
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH AND FILTER -->
+        <section class="controls">
+
+            <div class="search-box">
+
+                <span class="search-icon">🔍</span>
+
+                <input
+    type="text"
+    id="searchInput"
+    placeholder="Search student name, ID, email..."
+>
+
+
+
+                <button
+                    class="clear-btn"
+                    id="clearButton"
+                    onclick="clearSearch()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+<select id="statusFilter">
+
+            
+            
+                <option value="All">All Students</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+
+        </section>
+
+
+        <!-- SEARCH RESULT MESSAGE -->
+        <div id="resultMessage" class="result-message"></div>
+
+
+        <!-- STUDENT TABLE -->
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Grade</th>
+                        <th>Section</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable">
+
+                    <tr>
+                        <td>STU001</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>STEM-A</td>
+                        <td>juan@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU002</td>
+                        <td>Maria Santos</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>HUMSS-A</td>
+                        <td>maria@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU003</td>
+                        <td>Pedro Reyes</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>ABM-A</td>
+                        <td>pedro@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU004</td>
+                        <td>Ana Garcia</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>STEM-B</td>
+                        <td>ana@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU005</td>
+                        <td>Mark Lopez</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>ICT-A</td>
+                        <td>mark@email.com</td>
+                        <td><span class="inactive">Inactive</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU006</td>
+                        <td>Sofia Cruz</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>HUMSS-B</td>
+                        <td>sofia@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU007</td>
+                        <td>Daniel Ramos</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>STEM-A</td>
+                        <td>daniel@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU008</td>
+                        <td>Angela Torres</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>ABM-B</td>
+                        <td>angela@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU009</td>
+                        <td>Michael Flores</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>ICT-B</td>
+                        <td>michael@email.com</td>
+                        <td><span class="inactive">Inactive</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU010</td>
+                        <td>Christine Aquino</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>STEM-B</td>
+                        <td>christine@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU011</td>
+                        <td>Kevin Mendoza</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>HUMSS-A</td>
+                        <td>kevin@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU012</td>
+                        <td>Patricia Navarro</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>ABM-A</td>
+                        <td>patricia@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU013</td>
+                        <td>John Martinez</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>STEM-A</td>
+                        <td>john@email.com</td>
+                        <td><span class="inactive">Inactive</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU014</td>
+                        <td>Isabella Ramos</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>ICT-A</td>
+                        <td>isabella@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU015</td>
+                        <td>Anthony Garcia</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>HUMSS-B</td>
+                        <td>anthony@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU016</td>
+                        <td>Michelle Reyes</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>STEM-A</td>
+                        <td>michelle@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU017</td>
+                        <td>Ryan Castillo</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>ABM-B</td>
+                        <td>ryan@email.com</td>
+                        <td><span class="inactive">Inactive</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU018</td>
+                        <td>Stephanie Diaz</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>ICT-B</td>
+                        <td>stephanie@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU019</td>
+                        <td>Joshua Fernandez</td>
+                        <td>18</td>
+                        <td>Male</td>
+                        <td>12</td>
+                        <td>STEM-B</td>
+                        <td>joshua@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>STU020</td>
+                        <td>Gabriella Tan</td>
+                        <td>17</td>
+                        <td>Female</td>
+                        <td>11</td>
+                        <td>HUMSS-A</td>
+                        <td>gabriella@email.com</td>
+                        <td><span class="active">Active</span></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 Student Management System</p>
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
